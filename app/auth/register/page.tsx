@@ -35,13 +35,26 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">CBT Psikotest</h1>
-          <p className="text-muted-foreground">Platform latihan soal psikotest online</p>
+    <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-6">
+      <div className="hidden bg-muted lg:col-span-3 lg:flex lg:items-center lg:justify-center">
+        <div className="text-center px-20">
+          <h2 className="text-4xl font-bold text-foreground">
+            Mulai Perjalanan Anda Menuju Sukses
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Daftar sekarang untuk mengakses ribuan soal latihan, melacak kemajuan,
+            dan mendapatkan wawasan untuk meningkatkan skor psikotest Anda.
+          </p>
         </div>
-        <RegisterForm onRegister={handleRegister} />
+      </div>
+      <div className="flex items-center justify-center py-12 lg:col-span-3 min-h-screen">
+        <div className="mx-auto grid w-[380px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">Buat Akun Baru</h1>
+            <p className="text-balance text-muted-foreground">Isi form di bawah untuk mendaftar</p>
+          </div>
+          <RegisterForm onRegister={handleRegister} />
+        </div>
       </div>
     </div>
   )

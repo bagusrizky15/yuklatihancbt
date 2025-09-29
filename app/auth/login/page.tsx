@@ -42,14 +42,44 @@ export default function LoginPage() {
     }
   }
 
+  const handleGoogleLogin = async () => {
+    // Mock Google authentication
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        id: "3",
+        name: "Google User",
+        email: "google.user@example.com",
+        role: "user",
+      }),
+    )
+    router.push("/")
+    return { success: true }
+  }
+
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">CBT Psikotest</h1>
-          <p className="text-muted-foreground">Platform latihan soal psikotest online</p>
+    <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-6">
+      <div className="hidden bg-muted lg:col-span-3 lg:flex lg:items-center lg:justify-center">
+        <div className="text-center px-20">
+          <h2 className="text-4xl font-bold text-foreground">
+            Tingkatkan Peluang Karir Anda
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Latih kemampuan psikotest Anda dengan ribuan soal terstandarisasi dan
+            dapatkan analisis mendalam untuk persiapan tes kerja atau seleksi
+            masuk.
+          </p>
         </div>
-        <LoginForm onLogin={handleLogin} />
+      </div>
+      <div className="flex items-center justify-center py-12 lg:col-span-3 min-h-screen">
+        <div className="mx-auto grid w-[350px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">CBT Psikotest</h1>
+            <p className="text-balance text-muted-foreground">Masuk untuk melanjutkan</p>
+          </div>
+          <LoginForm onLogin={handleLogin} onGoogleLogin={handleGoogleLogin} />
+        </div>
       </div>
     </div>
   )
