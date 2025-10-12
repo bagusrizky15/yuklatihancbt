@@ -17,7 +17,6 @@ interface RegisterFormProps {
     name: string
     email: string
     password: string
-    confirmPassword: string
   }) => Promise<{ success: boolean; error?: string }>
 }
 
@@ -103,7 +102,7 @@ export function RegisterForm({ onRegister }: RegisterFormProps) {
               <Input
                 id="name"
                 type="text"
-                placeholder="Masukkan nama lengkap"
+                placeholder="Nama lengkap"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 className="pl-10"

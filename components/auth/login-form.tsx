@@ -45,6 +45,7 @@ export function LoginForm({ onLogin, onGoogleLogin }: LoginFormProps) {
         setError(result.error || "Login gagal")
       }
     } catch (err) {
+      console.log("Login err", err)
       setError("Terjadi kesalahan. Silakan coba lagi.")
     } finally {
       setIsLoading(false)

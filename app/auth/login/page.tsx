@@ -6,44 +6,46 @@ import { useRouter } from "next/navigation"
 export default function LoginPage() {
   const router = useRouter()
 
-  const handleLogin = async (email: string, password: string) => {
-    // Mock authentication - in real app, this would call an API
-    await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulate API call
+  const handleLogin = async (
+    email: string,
+    password: string
+  ): Promise<{ success: boolean; error?: string }> => {
+    try {
+      const res = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
 
-    // Mock validation
-    if (email === "admin@test.com" && password === "admin123") {
-      // Store user session in localStorage (in real app, use proper session management)
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          id: "1",
-          name: "Admin User",
-          email: email,
-          role: "admin",
-        }),
-      )
-      router.push("/dashboard")
-      return { success: true }
-    } else if (email.includes("@") && password.length >= 6) {
-      // Mock successful login for any valid email/password
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          id: "2",
-          name: "Test User",
-          email: email,
-          role: "user",
-        }),
-      )
-      router.push("/")
-      return { success: true }
-    } else {
-      return { success: false, error: "Email atau password salah" }
+      const result = await res.json()
+
+      if (!res.ok) {
+        return {
+          success: false,
+          error: result.message || "Email atau password salah",
+        }
+      }
+
+      if (result.message && result.token) {
+        localStorage.setItem("message", result.message)
+        localStorage.setItem("token", result.token)
+        // Simpan data user yang lebih lengkap
+        // localStorage.setItem("user", JSON.stringify(result.user))
+        router.push("/")
+        return { success: true }
+      }
+
+      return { success: false, error: "Respons dari server tidak valid" }
+    } catch (error) {
+      console.error("Login error:", error)
+      return {
+        success: false,
+        error: "Tidak dapat terhubung ke server. Pastikan backend berjalan.",
+      }
     }
   }
 
   const handleGoogleLogin = async () => {
-    // Mock Google authentication
     await new Promise((resolve) => setTimeout(resolve, 500))
     localStorage.setItem(
       "user",

@@ -10,40 +10,54 @@ export default function RegisterPage() {
     name: string
     email: string
     password: string
-    confirmPassword: string
   }) => {
-    // Mock registration - in real app, this would call an API
-    await new Promise((resolve) => setTimeout(resolve, 1500)) // Simulate API call
+    try {
+      // Kirim request ke backend Golang
+      const res = await fetch("http://localhost:8080/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    // Mock validation
-    const existingUsers = ["admin@test.com", "user@test.com"]
-    if (existingUsers.includes(data.email)) {
-      return { success: false, error: "Email sudah terdaftar" }
+      // Parse response dari backend
+      const result = await res.json();
+
+      // Jika backend mengembalikan error
+      if (!res.ok) {
+        return { success: false, error: result.message || "Gagal membuat user" };
+      }
+
+      // Simpan data user (jika kamu mau simpan ke localStorage)
+      const newUser = {
+        name: data.name,
+        email: data.email,
+        role: "user",
+      };
+
+      localStorage.setItem("user", JSON.stringify(newUser));
+
+      // Arahkan ke halaman utama
+      router.push("/");
+
+      return { success: true };
+    } catch (error: any) {
+      console.error("Registration error:", error);
+      return { success: false, error: "Terjadi kesalahan koneksi ke server" };
     }
-
-    // Mock successful registration
-    const newUser = {
-      id: Date.now().toString(),
-      name: data.name,
-      email: data.email,
-      role: "user",
-    }
-
-    localStorage.setItem("user", JSON.stringify(newUser))
-    router.push("/")
-    return { success: true }
-  }
+  };
 
   return (
     <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-6">
       <div className="hidden bg-muted lg:col-span-3 lg:flex lg:items-center lg:justify-center">
         <div className="text-center px-20">
           <h2 className="text-4xl font-bold text-foreground">
-            Mulai Perjalanan Anda Menuju Sukses
+            Mulai Perjalanan Kamu Disini
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Daftar sekarang untuk mengakses ribuan soal latihan, melacak kemajuan,
-            dan mendapatkan wawasan untuk meningkatkan skor psikotest Anda.
+            Daftar sekarang untuk mengakses ribuan soal latihan, menganalisis kemajuan,
+            dan mendapatkan wawasan untuk meningkatkan skor Kamu.
           </p>
         </div>
       </div>
