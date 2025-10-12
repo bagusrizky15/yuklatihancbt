@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation"
 
 export default function RegisterPage() {
   const router = useRouter()
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
   const handleRegister = async (data: {
     name: string
@@ -13,7 +15,7 @@ export default function RegisterPage() {
   }) => {
     try {
       // Kirim request ke backend Golang
-      const res = await fetch("http://localhost:8080/register", {
+      const res = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
