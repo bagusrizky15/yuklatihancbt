@@ -29,15 +29,13 @@ export default function LoginPage() {
       if (result.message && result.token) {
         localStorage.setItem("message", result.message)
         localStorage.setItem("token", result.token)
-        // Simpan data user yang lebih lengkap
-        // localStorage.setItem("user", JSON.stringify(result.user))
         router.push("/")
         return { success: true }
       }
 
       return { success: false, error: "Respons dari server tidak valid" }
     } catch (error) {
-      console.error("Login error:", error)
+      console.error("error:", error)
       return {
         success: false,
         error: "Tidak dapat terhubung ke server. Pastikan backend berjalan.",
