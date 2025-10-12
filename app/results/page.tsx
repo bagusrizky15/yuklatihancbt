@@ -188,14 +188,14 @@ export default function ResultsPage() {
               <p className="text-muted-foreground">Analisis lengkap performa Anda</p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm">
+              {/* <Button variant="outline" size="sm">
                 <Download className="w-4 h-4 mr-2" />
                 Unduh PDF
               </Button>
               <Button variant="outline" size="sm">
                 <Share2 className="w-4 h-4 mr-2" />
                 Bagikan
-              </Button>
+              </Button> */}
               <Link href="/">
                 <Button size="sm">
                   <Home className="w-4 h-4 mr-2" />

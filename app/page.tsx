@@ -76,8 +76,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">CBT Psikotest</h1>
-              <p className="text-muted-foreground mt-1">Platform latihan soal psikotest online</p>
+              <h1 className="text-3xl font-bold text-foreground">Sikotest</h1>
+              <p className="text-muted-foreground mt-1">Latihan Soal dibantu AI</p>
             </div>
             <div className="flex items-center gap-4">
               {user ? (
@@ -110,23 +110,22 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Latihan Soal Psikotest Terlengkap</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4">Uji Kemampuan Sekarang!</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Persiapkan diri Anda dengan ribuan soal psikotest dari berbagai kategori. Tingkatkan kemampuan dan raih
-            hasil terbaik dalam tes psikologi.
+            Buktikan kamu bisa tanpa AI. Gunakan AI untuk membantu menganalisis kemampuanmu.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <BookOpen className="w-5 h-5" />
-              <span>1000+ Soal</span>
+              <span>+100 Soal</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5" />
-              <span>10,000+ Pengguna</span>
+              <span>1000+ Pengguna</span>
             </div>
             <div className="flex items-center gap-2">
               <TrendingUp className="w-5 h-5" />
-              <span>Analisis Mendalam</span>
+              <span>Terintegrasi dengan AI</span>
             </div>
           </div>
         </div>
@@ -136,8 +135,8 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">Kategori Tes</h3>
-            <p className="text-muted-foreground">Pilih kategori tes yang ingin Anda latih</p>
+            <h3 className="text-3xl font-bold text-foreground mb-4">Coba Gratis Sekarang!</h3>
+            <p className="text-muted-foreground">Pilih kategori tes yang ingin kamu coba</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -187,8 +186,8 @@ export default function HomePage() {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">Fitur Unggulan</h3>
-            <p className="text-muted-foreground">Mengapa memilih platform kami?</p>
+            <h3 className="text-3xl font-bold text-foreground mb-4">Fitur Unggulan Sikotest</h3>
+            <p className="text-muted-foreground">Mengapa memilih kami?</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -197,7 +196,7 @@ export default function HomePage() {
                 <Clock className="w-8 h-8 text-primary-foreground" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Timer Otomatis</h4>
-              <p className="text-muted-foreground">Simulasi kondisi tes sesungguhnya dengan timer yang akurat</p>
+              <p className="text-muted-foreground">Simulasi kondisi tes sesungguhnya dengan timer yang akurat.</p>
             </div>
 
             <div className="text-center">
@@ -205,7 +204,7 @@ export default function HomePage() {
                 <TrendingUp className="w-8 h-8 text-primary-foreground" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Analisis Hasil</h4>
-              <p className="text-muted-foreground">Dapatkan analisis mendalam tentang kekuatan dan kelemahan Anda</p>
+              <p className="text-muted-foreground">Dapatkan analisis mendalam tentang kekuatan dan kelemahan Anda.</p>
             </div>
 
             <div className="text-center">
@@ -214,7 +213,7 @@ export default function HomePage() {
               </div>
               <h4 className="text-xl font-semibold mb-2">Bank Soal Lengkap</h4>
               <p className="text-muted-foreground">
-                Ribuan soal dari berbagai kategori psikotest yang terus diperbarui
+                Soal akan terus diperbarui.
               </p>
             </div>
           </div>
@@ -224,7 +223,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-card border-t py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">© 2025 CBT Psikotest. Semua hak dilindungi.</p>
+          <p className="text-muted-foreground">© 2025 Sikotest. Semua hak dilindungi.</p>
         </div>
       </footer>
     </div>

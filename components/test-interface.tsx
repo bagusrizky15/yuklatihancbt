@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -36,6 +37,7 @@ interface TestResults {
 }
 
 export function TestInterface({ testId, questions, duration, onTestComplete }: TestInterfaceProps) {
+  const router = useRouter()
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, any>>({})
   const [timeLeft, setTimeLeft] = useState(duration * 60) // convert to seconds
@@ -167,6 +169,9 @@ export function TestInterface({ testId, questions, duration, onTestComplete }: T
 
             <Button onClick={() => setIsTestStarted(true)} className="w-full" size="lg">
               Mulai Tes Sekarang
+            </Button>
+            <Button variant="outline" onClick={() => router.push("/")} className="w-full" size="lg">
+              Batal
             </Button>
           </CardContent>
         </Card>

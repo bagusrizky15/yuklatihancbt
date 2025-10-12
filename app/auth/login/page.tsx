@@ -75,7 +75,7 @@ export default function LoginPage() {
       <div className="flex items-center justify-center py-12 lg:col-span-3 min-h-screen">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
-            <h1 className="text-3xl font-bold">CBT Psikotest</h1>
+            <h1 className="text-3xl font-bold">Sikotest</h1>
             <p className="text-balance text-muted-foreground">Masuk untuk melanjutkan</p>
           </div>
           <LoginForm onLogin={handleLogin} onGoogleLogin={handleGoogleLogin} />
