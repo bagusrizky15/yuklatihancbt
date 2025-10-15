@@ -14,6 +14,14 @@ export default function RegisterPage() {
     password: string
   }) => {
     try {
+      if (!API_URL) {
+        console.error("API_URL is not defined. Please check your .env.local file.");
+        return {
+          success: false,
+          error: "Konfigurasi server tidak ditemukan. Hubungi administrator.",
+        };
+      }
+
       // Kirim request ke backend Golang
       const res = await fetch(`${API_URL}/register`, {
         method: "POST",
@@ -46,7 +54,11 @@ export default function RegisterPage() {
       return { success: true };
     } catch (error: any) {
       console.error("Registration error:", error);
-      return { success: false, error: "Terjadi kesalahan koneksi ke server" };
+      return {
+        success: false,
+        error:
+          "Tidak dapat terhubung ke server. Pastikan backend berjalan dan URL sudah benar.",
+      };
     }
   };
 

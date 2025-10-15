@@ -12,6 +12,14 @@ export default function LoginPage() {
     password: string
   ): Promise<{ success: boolean; error?: string }> => {
     try {
+      if (!API_URL) {
+        console.error("API_URL is not defined. Please check your .env.local file.");
+        return {
+          success: false,
+          error: "Konfigurasi server tidak ditemukan. Hubungi administrator.",
+        };
+      }
+
       const res = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
